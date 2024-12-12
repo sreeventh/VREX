@@ -14,8 +14,7 @@ import {
 import { Plane, Html } from "@react-three/drei";
 import DeskModel from "../public/Desk.jsx";
 import { TextureLoader, RepeatWrapping } from "three";
-// import MModel from "../public/M85.jsx";
-import M85Comp from "../public/M85Comp.jsx";
+import MModel from "../public/M85.jsx";
 import { useLoader, useFrame } from "@react-three/fiber";
 
 function World() {
@@ -77,7 +76,7 @@ function World() {
         <DeskModel position={[8, 0, -3]} scale={0.6} />
       </Suspense>
       <Suspense>
-        <M85Comp position={[0, 0, 1]} scale={0.3} exploded={exploded} />
+        <MModel position={[0, 0, 1]} scale={0.3} exploded={exploded} />
       </Suspense>
       <Button
         onClick={toggleExplode}
