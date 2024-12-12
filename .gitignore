@@ -24,8 +24,9 @@ dist-ssr
 *.sw?
 *.glb
 *.gltf
-*.hdr
 machine.bin
 Machine.jsx
 MachineBut.jsx
 MachinePlode.jsx
+751-hdri-skies-com.hdr
+783-hdri-skies-com.hdr
