@@ -1,8 +1,8 @@
-# React + Vite
+# SpacesVR Deployed Version
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This branch is dedicated to deploying the site and is specifically configured for demo purposes. It contains:
+	•	Compressed environments
+	•	Prebuilt asset
+	•	Compressed 3D models
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Please note that this branch is optimized solely for demonstration and may not include all development or production features.
