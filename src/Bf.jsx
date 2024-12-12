@@ -16,6 +16,8 @@ import MachineBut from "../public/MachineBut.jsx";
 import DeskModel from "../public/Desk.jsx";
 import { TextureLoader, RepeatWrapping } from "three";
 import MModel from "../public/M85.jsx";
+import DModel from "../public/Dancing_iron_man.jsx";
+import DModel2 from "../public/Dancing_iron_man_two.jsx";
 import { useLoader, useFrame } from "@react-three/fiber";
 
 function World() {
@@ -99,6 +101,13 @@ function World() {
       <Suspense>
         <MModel position={[0, 0, 1]} scale={0.3} exploded={exploded} />
       </Suspense>
+      <Suspense>
+        <DModel position={[7, 0, -5]} scale={0.3} />
+      </Suspense>
+      <Suspense>
+        <DModel2 position={[10, 0, -5]} scale={0.3} />
+      </Suspense>
+
       {/* <FacePlayer enabled={true}>
         <Tool name="Explode" pos={[0.8, -0.8]} range={20}>
           <Button
