@@ -96,7 +96,11 @@ function World() {
         />
       </Suspense> */}
       <Suspense fallback={null}>
-        <DeskModel position={[8, 0, -3]} scale={0.6} />
+        <DeskModel
+          position={[8, 0, -3]}
+          scale={0.6}
+          rotation={[0, -Math.PI / 2, 0]}
+        />
       </Suspense>
       <Suspense>
         <MModel position={[0, 0, 1]} scale={0.3} exploded={exploded} />
@@ -105,7 +109,13 @@ function World() {
         <DModel position={[7, 0, -5]} scale={0.3} />
       </Suspense>
       <Suspense>
-        <DModel2 position={[10, 0, -5]} scale={0.3} />
+        <DModel2 position={[9, 0, -5]} scale={0.3} />
+      </Suspense>
+      <Suspense>
+        <DModel position={[7, 0, -2]} scale={0.3} />
+      </Suspense>
+      <Suspense>
+        <DModel2 position={[9, 0, -2]} scale={0.3} />
       </Suspense>
 
       {/* <FacePlayer enabled={true}>
