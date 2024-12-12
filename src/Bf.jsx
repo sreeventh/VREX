@@ -173,9 +173,9 @@ function World() {
               setExploded(true);
             } else if (transcript.includes("assemble")) {
               setExploded(false);
-            } else if (transcript.includes("open door")) {
+            } else if (transcript.includes("open the door")) {
               setDoor(true);
-            } else if (transcript.includes("close door")) {
+            } else if (transcript.includes("close the door")) {
               setDoor(false);
             } else if (transcript.includes("friday protocol")) {
               handlePlayMusic();
