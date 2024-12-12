@@ -90,18 +90,6 @@ function World() {
         {exploded ? "Assemble" : "Explode"}
       </Button>
       <Button
-        onClick={() => {
-          window.location.href = "http://sreeventh.github.io/XplodePOC";
-        }}
-        color={"yellow"}
-        fontSize={0.1}
-        maxWidth={0.5}
-        position={[0, 0.35, 0.188]}
-        scale={0.5}
-      >
-        View Static 3D
-      </Button>
-      <Button
         onClick={toggleDoor}
         color={door ? "red" : "green"}
         fontSize={0.1}
