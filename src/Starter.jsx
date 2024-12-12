@@ -1,4 +1,4 @@
-import { StandardReality, LostWorld } from "spacesvr";
+import { StandardReality, LostWorld, Model, Collidable } from "spacesvr";
 import React, { Suspense } from "react";
 import DeskModel from "../public/Desk.jsx";
 import { useState, useEffect } from "react";
@@ -46,6 +46,14 @@ export default function World() {
       <Suspense fallback={null}>
         <DeskModel position={[8, 0, -3]} scale={0.6} />
       </Suspense>
+      <Collidable>
+        <Model
+          src="./buildings/vrShowcaseGlassFixed.glb"
+          scale={0.007}
+          rotation={[-Math.PI / 2, 0, 0]}
+          position={[0, 0.07, 0]}
+        />
+      </Collidable>
     </StandardReality>
   );
 }
