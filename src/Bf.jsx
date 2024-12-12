@@ -17,6 +17,7 @@ import DeskModel from "../public/Desk.jsx";
 import { TextureLoader, RepeatWrapping } from "three";
 import MModel from "../public/M85.jsx";
 import { useLoader, useFrame } from "@react-three/fiber";
+import playMusicInBackground from "./apps.js";
 
 function World() {
   const [exploded, setExploded] = useState(false);
@@ -110,7 +111,49 @@ function World() {
       </Button>
       <Button
         onClick={() => {
-          window.location.href = "http://sreeventh.github.io/XplodePOC";
+          // Start voice recognition when the button is clicked
+          const SpeechRecognition =
+            window.SpeechRecognition || window.webkitSpeechRecognition;
+          const recognition = new SpeechRecognition();
+
+          recognition.continuous = true;
+          recognition.lang = "en-US";
+          recognition.interimResults = false;
+
+          recognition.onstart = () => {
+            console.log(
+              "Voice recognition activated. Try speaking into the microphone."
+            );
+          };
+
+          recognition.onresult = (event) => {
+            const transcript = event.results[event.resultIndex][0].transcript
+              .trim()
+              .toLowerCase();
+            console.log("Recognized voice command:", transcript);
+
+            if (transcript.includes("explode")) {
+              setExploded(true);
+            } else if (transcript.includes("assemble")) {
+              setExploded(false);
+            } else if (transcript.includes("open door")) {
+              setDoor(true);
+            } else if (transcript.includes("close door")) {
+              setDoor(false);
+            }
+          };
+
+          recognition.onerror = (event) => {
+            console.error("Speech recognition error:", event.error);
+          };
+
+          recognition.onend = () => {
+            console.log(
+              "Voice recognition ended. Restart it manually if needed."
+            );
+          };
+
+          recognition.start();
         }}
         color={"yellow"}
         fontSize={0.1}
@@ -118,7 +161,7 @@ function World() {
         position={[0, 0.35, 0.188]}
         scale={0.5}
       >
-        View Static 3D
+        Start Voice Command
       </Button>
       <Button
         onClick={toggleDoor}
