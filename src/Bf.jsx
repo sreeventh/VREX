@@ -23,6 +23,7 @@ import { useLoader, useFrame } from "@react-three/fiber";
 function World() {
   const [exploded, setExploded] = useState(false);
   const [door, setDoor] = useState(false);
+  const [fridayProtocolActive, setFridayProtocolActive] = useState(false);
   const groundTexture = new TextureLoader().load("./textures/grass.jpg");
   //   const groundTexture = useLoader(TextureLoader, "./grass.jpg");
   // Set the texture to repeat across the plane
@@ -47,6 +48,7 @@ function World() {
         method: "GET",
         mode: "cors", // This is important
       });
+      setFridayProtocolActive(true);
       const data = await response.json();
       console.log(data.message);
     } catch (error) {
@@ -105,18 +107,22 @@ function World() {
       <Suspense>
         <MModel position={[0, 0, 1]} scale={0.3} exploded={exploded} />
       </Suspense>
-      <Suspense>
-        <DModel position={[7, 0, -5]} scale={0.3} />
-      </Suspense>
-      <Suspense>
-        <DModel2 position={[9, 0, -5]} scale={0.3} />
-      </Suspense>
-      <Suspense>
-        <DModel position={[7, 0, -2]} scale={0.3} />
-      </Suspense>
-      <Suspense>
-        <DModel2 position={[9, 0, -2]} scale={0.3} />
-      </Suspense>
+      {fridayProtocolActive && (
+        <>
+          <Suspense>
+            <DModel position={[7, 0, -5]} scale={0.3} />
+          </Suspense>
+          <Suspense>
+            <DModel2 position={[9, 0, -5]} scale={0.3} />
+          </Suspense>
+          <Suspense>
+            <DModel position={[7, 0, -2]} scale={0.3} />
+          </Suspense>
+          <Suspense>
+            <DModel2 position={[9, 0, -2]} scale={0.3} />
+          </Suspense>
+        </>
+      )}
 
       {/* <FacePlayer enabled={true}>
         <Tool name="Explode" pos={[0.8, -0.8]} range={20}>
