@@ -22,7 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-*.glb
 *.gltf
 machine.bin
 Machine.jsx
@@ -30,3 +29,6 @@ MachineBut.jsx
 MachinePlode.jsx
 751-hdri-skies-com.hdr
 783-hdri-skies-com.hdr
+room_99mb.glb
+m85.glb
+desk.glb
