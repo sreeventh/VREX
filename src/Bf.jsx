@@ -12,7 +12,6 @@ import {
   Camera,
 } from "spacesvr";
 import { Plane, Html } from "@react-three/drei";
-import MachineBut from "../public/MachineBut.jsx";
 import DeskModel from "../public/Desk.jsx";
 import { TextureLoader, RepeatWrapping } from "three";
 import MModel from "../public/M85.jsx";
@@ -73,31 +72,12 @@ function World() {
           position={[0, 0.03, 0]}
         />
       </Collidable>
-      {/* <Suspense fallback={null}>
-        <MachineBut
-          position={[0, 0.8, 0.09]}
-          scale={0.003}
-          exploded={exploded}
-        />
-      </Suspense> */}
       <Suspense fallback={null}>
         <DeskModel position={[8, 0, -3]} scale={0.6} />
       </Suspense>
       <Suspense>
         <MModel position={[0, 0, 1]} scale={0.3} exploded={exploded} />
       </Suspense>
-      {/* <FacePlayer enabled={true}>
-        <Tool name="Explode" pos={[0.8, -0.8]} range={20}>
-          <Button
-            onClick={toggleExplode}
-            color={exploded ? "red" : "green"}
-            fontSize={0.1}
-            maxWidth={0.5}
-          >
-            {exploded ? "Implode" : "Explode"}
-          </Button>
-        </Tool>
-      </FacePlayer> */}
       <Button
         onClick={toggleExplode}
         color={exploded ? "red" : "green"}
