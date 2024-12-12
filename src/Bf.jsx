@@ -17,7 +17,6 @@ import DeskModel from "../public/Desk.jsx";
 import { TextureLoader, RepeatWrapping } from "three";
 import MModel from "../public/M85.jsx";
 import { useLoader, useFrame } from "@react-three/fiber";
-import playMusicInBackground from "./apps.js";
 
 function World() {
   const [exploded, setExploded] = useState(false);
@@ -39,6 +38,19 @@ function World() {
     // Debugging to check door state on page load
     console.log("Initial door state:", door);
   }, [door]); // Runs when the door state changes
+
+  const handlePlayMusic = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/play", {
+        method: "GET",
+        mode: "cors", // This is important
+      });
+      const data = await response.json();
+      console.log(data.message);
+    } catch (error) {
+      console.error("Error playing music:", error);
+    }
+  };
 
   return (
     <StandardReality
@@ -140,6 +152,8 @@ function World() {
               setDoor(true);
             } else if (transcript.includes("close door")) {
               setDoor(false);
+            } else if (transcript.includes("friday protocol")) {
+              handlePlayMusic();
             }
           };
 
@@ -161,7 +175,7 @@ function World() {
         position={[0, 0.35, 0.188]}
         scale={0.5}
       >
-        Start Voice Command
+        Jarvis in 144p
       </Button>
       <Button
         onClick={toggleDoor}
