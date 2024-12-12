@@ -1,8 +1,5 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
-import Trial from "./Trial.jsx";
-import Aud from "./Audbug.jsx";
 // import World from "./Bf.jsx";
 import World from "./Starter.jsx";
 

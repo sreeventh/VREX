@@ -1,6 +1,13 @@
-import { StandardReality, LostWorld, Model, Collidable } from "spacesvr";
+import {
+  StandardReality,
+  LostWorld,
+  Model,
+  Collidable,
+  Button,
+} from "spacesvr";
 import React, { Suspense } from "react";
 import DeskModel from "../public/Desk.jsx";
+import M85Comp from "../public/M85Comp.jsx";
 import { useState, useEffect } from "react";
 import { TextureLoader, RepeatWrapping } from "three";
 import { Plane, Html } from "@react-three/drei";
@@ -46,7 +53,7 @@ export default function World() {
       <Suspense fallback={null}>
         <DeskModel position={[8, 0, -3]} scale={0.6} />
       </Suspense>
-      <Collidable>
+      <Collidable enabled={!door}>
         <Model
           src="./buildings/vrShowcaseGlassFixed.glb"
           scale={0.007}
@@ -54,6 +61,38 @@ export default function World() {
           position={[0, 0.07, 0]}
         />
       </Collidable>
+      <Suspense>
+        <M85Comp position={[0, 0.6, 0]} scale={0.3} exploded={exploded} />
+      </Suspense>
+      <Button
+        onClick={toggleExplode}
+        color={exploded ? "red" : "green"}
+        fontSize={0.1}
+        maxWidth={0.5}
+        position={[0, 0.5, 0.188]}
+        scale={1.5}
+      >
+        {exploded ? "Assemble" : "Explode"}
+      </Button>
+      <Button
+        onClick={toggleDoor}
+        color={door ? "green" : "red"}
+        fontSize={0.1}
+        maxWidth={0.5}
+        position={[0, 0.6, -3]}
+      >
+        {door ? "Open" : "Locked"}
+      </Button>
+      <Button
+        onClick={toggleDoor}
+        color={door ? "green" : "red"}
+        fontSize={0.1}
+        maxWidth={0.5}
+        scale={0.5}
+        position={[0, 0.9, -2.75]}
+      >
+        {door ? "Open" : "Locked"}
+      </Button>
     </StandardReality>
   );
 }
