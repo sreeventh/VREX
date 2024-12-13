@@ -23,6 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 *.gltf
+*.txt
 machine.bin
 Machine.jsx
 MachineBut.jsx
