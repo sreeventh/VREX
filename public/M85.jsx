@@ -9,18 +9,6 @@ import { useSpring, animated } from "@react-spring/three";
 
 export default function MModel(props) {
   const { nodes, materials } = useGLTF("/m85.glb");
-  const [transparentParts, setTransparentParts] = useState({});
-
-  const handleClick = (e) => {
-    e.stopPropagation();
-    if (localStorage.getItem("cursor") === "crosshair") {
-      const name = e.object.name;
-      setTransparentParts((prev) => ({
-        ...prev,
-        [name]: !prev[name],
-      }));
-    }
-  };
 
   const getExplodedPosition = (index) => {
     return [
@@ -33,9 +21,6 @@ export default function MModel(props) {
   return (
     <group
       {...props}
-      onClick={handleClick}
-      onPointerDown={(e) => e.stopPropagation()}
-      onPointerUp={(e) => e.stopPropagation()}
       dispose={null}
       position={props.position}
       scale={props.scale}
@@ -52,10 +37,6 @@ export default function MModel(props) {
 
               const material =
                 materials[node.material?.name || "default"].clone();
-              if (transparentParts[name]) {
-                material.transparent = true;
-                material.opacity = 0.5;
-              }
 
               return (
                 <animated.mesh
